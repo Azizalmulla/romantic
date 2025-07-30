@@ -12,11 +12,16 @@ export default function LoveMessagesForRawan() {
   const [timeUntilNext, setTimeUntilNext] = useState("")
   const [isDarkMode, setIsDarkMode] = useState(false)
 
-  // Get message index based on days since epoch
+  // Get message index based on days since a fixed start date
   const getMessageIndex = () => {
+    // Set start date to December 31, 2024 so that January 1, 2025 shows the Batman message (index 0)
+    const startDate = new Date("2024-12-31")
     const today = new Date()
-    const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate()) // Start from today
+
+    // Calculate days since start date
     const daysDifference = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
+
+    // Return the message index (cycles through all messages)
     return daysDifference % loveMessages.messages.length
   }
 
@@ -40,37 +45,44 @@ export default function LoveMessagesForRawan() {
     setIsDarkMode(!isDarkMode)
   }
 
-  useEffect(() => {
-    // Set initial message
+  // Update message and countdown
+  const updateMessage = () => {
     const index = getMessageIndex()
     setMessageIndex(index)
     setCurrentMessage(loveMessages.messages[index])
+
+    const timeLeft = getTimeUntilMidnight()
+    setTimeUntilNext(formatTimeRemaining(timeLeft))
+  }
+
+  useEffect(() => {
+    // Set initial message
+    updateMessage()
     setIsLoading(false)
 
     // Update countdown every minute
-    const updateCountdown = () => {
+    const countdownInterval = setInterval(() => {
       const timeLeft = getTimeUntilMidnight()
       setTimeUntilNext(formatTimeRemaining(timeLeft))
-    }
 
-    updateCountdown()
-    const countdownInterval = setInterval(updateCountdown, 60000) // Update every minute
+      // Check if it's a new day and update message if needed
+      const currentIndex = getMessageIndex()
+      if (currentIndex !== messageIndex) {
+        updateMessage()
+      }
+    }, 60000) // Update every minute
 
     // Set up timer to change message at midnight
+    const now = new Date()
     const timeUntilMidnight = getTimeUntilMidnight()
 
     const midnightTimer = setTimeout(() => {
-      // Update message at midnight
-      const newIndex = getMessageIndex()
-      setMessageIndex(newIndex)
-      setCurrentMessage(loveMessages.messages[newIndex])
+      updateMessage()
 
       // Set up daily interval for subsequent days
       const dailyInterval = setInterval(
         () => {
-          const newIndex = getMessageIndex()
-          setMessageIndex(newIndex)
-          setCurrentMessage(loveMessages.messages[newIndex])
+          updateMessage()
         },
         24 * 60 * 60 * 1000,
       ) // 24 hours
