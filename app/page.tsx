@@ -3,39 +3,13 @@
 import { useState, useEffect } from "react"
 import { Heart, Moon, Sun } from "lucide-react"
 import FloatingHearts from "./components/floating-hearts"
-import loveMessages from "../data/love-messages.json"
 
 export default function LoveMessagesForRawan() {
-  const [currentMessage, setCurrentMessage] = useState("")
-  const [messageIndex, setMessageIndex] = useState(0)
+  const [currentMessage, setCurrentMessage] = useState("Even though I traveled, my heart never left you 💕✈️")
+  const [messageIndex, setMessageIndex] = useState(-1)
   const [isLoading, setIsLoading] = useState(true)
   const [timeUntilNext, setTimeUntilNext] = useState("")
   const [isDarkMode, setIsDarkMode] = useState(false)
-
-  // Special message override for today
-  const getSpecialMessage = () => {
-    const today = new Date()
-    const specialDate = new Date("2025-01-02") // Today's date
-
-    // Check if today is the special message day
-    if (today.toDateString() === specialDate.toDateString()) {
-      return "Even though I traveled, my heart never left you 💕✈️"
-    }
-    return null
-  }
-
-  // Get message index based on days since a fixed start date
-  const getMessageIndex = () => {
-    // Set start date to December 31, 2024 so that January 1, 2025 shows the Batman message (index 0)
-    const startDate = new Date("2024-12-31")
-    const today = new Date()
-
-    // Calculate days since start date
-    const daysDifference = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
-
-    // Return the message index (cycles through all messages)
-    return daysDifference % loveMessages.messages.length
-  }
 
   // Get time until next message (midnight)
   const getTimeUntilMidnight = () => {
@@ -57,67 +31,20 @@ export default function LoveMessagesForRawan() {
     setIsDarkMode(!isDarkMode)
   }
 
-  // Update message and countdown
-  const updateMessage = () => {
-    // Check for special message first
-    const specialMessage = getSpecialMessage()
-    if (specialMessage) {
-      setCurrentMessage(specialMessage)
-      setMessageIndex(-1) // Special indicator
-    } else {
-      const index = getMessageIndex()
-      setMessageIndex(index)
-      setCurrentMessage(loveMessages.messages[index])
-    }
-
-    const timeLeft = getTimeUntilMidnight()
-    setTimeUntilNext(formatTimeRemaining(timeLeft))
-  }
-
   useEffect(() => {
-    // Set initial message
-    updateMessage()
     setIsLoading(false)
 
     // Update countdown every minute
     const countdownInterval = setInterval(() => {
       const timeLeft = getTimeUntilMidnight()
       setTimeUntilNext(formatTimeRemaining(timeLeft))
-
-      // Check if it's a new day and update message if needed
-      const specialMessage = getSpecialMessage()
-      if (specialMessage) {
-        if (currentMessage !== specialMessage) {
-          updateMessage()
-        }
-      } else {
-        const currentIndex = getMessageIndex()
-        if (currentIndex !== messageIndex) {
-          updateMessage()
-        }
-      }
     }, 60000) // Update every minute
 
-    // Set up timer to change message at midnight
-    const now = new Date()
-    const timeUntilMidnight = getTimeUntilMidnight()
-
-    const midnightTimer = setTimeout(() => {
-      updateMessage()
-
-      // Set up daily interval for subsequent days
-      const dailyInterval = setInterval(
-        () => {
-          updateMessage()
-        },
-        24 * 60 * 60 * 1000,
-      ) // 24 hours
-
-      return () => clearInterval(dailyInterval)
-    }, timeUntilMidnight)
+    // Initial countdown
+    const timeLeft = getTimeUntilMidnight()
+    setTimeUntilNext(formatTimeRemaining(timeLeft))
 
     return () => {
-      clearTimeout(midnightTimer)
       clearInterval(countdownInterval)
     }
   }, [])
@@ -206,13 +133,9 @@ export default function LoveMessagesForRawan() {
 
         {/* Message Info */}
         <div className="text-center mt-8 animate-fade-in-delay">
-          <p className={`text-sm mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-            {messageIndex === -1
-              ? "Special Message"
-              : `Message #${messageIndex + 1} of ${loveMessages.messages.length}`}
-          </p>
+          <p className={`text-sm mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>Special Travel Message ✈️</p>
           <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-            Next message in: {timeUntilNext} ✨
+            Back to regular messages tomorrow ✨
           </p>
         </div>
 
