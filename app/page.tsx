@@ -12,6 +12,18 @@ export default function LoveMessagesForRawan() {
   const [timeUntilNext, setTimeUntilNext] = useState("")
   const [isDarkMode, setIsDarkMode] = useState(false)
 
+  // Special message override for today
+  const getSpecialMessage = () => {
+    const today = new Date()
+    const specialDate = new Date("2025-01-02") // Today's date
+
+    // Check if today is the special message day
+    if (today.toDateString() === specialDate.toDateString()) {
+      return "Even though I traveled, my heart never left you 💕✈️"
+    }
+    return null
+  }
+
   // Get message index based on days since a fixed start date
   const getMessageIndex = () => {
     // Set start date to December 31, 2024 so that January 1, 2025 shows the Batman message (index 0)
@@ -47,9 +59,16 @@ export default function LoveMessagesForRawan() {
 
   // Update message and countdown
   const updateMessage = () => {
-    const index = getMessageIndex()
-    setMessageIndex(index)
-    setCurrentMessage(loveMessages.messages[index])
+    // Check for special message first
+    const specialMessage = getSpecialMessage()
+    if (specialMessage) {
+      setCurrentMessage(specialMessage)
+      setMessageIndex(-1) // Special indicator
+    } else {
+      const index = getMessageIndex()
+      setMessageIndex(index)
+      setCurrentMessage(loveMessages.messages[index])
+    }
 
     const timeLeft = getTimeUntilMidnight()
     setTimeUntilNext(formatTimeRemaining(timeLeft))
@@ -66,9 +85,16 @@ export default function LoveMessagesForRawan() {
       setTimeUntilNext(formatTimeRemaining(timeLeft))
 
       // Check if it's a new day and update message if needed
-      const currentIndex = getMessageIndex()
-      if (currentIndex !== messageIndex) {
-        updateMessage()
+      const specialMessage = getSpecialMessage()
+      if (specialMessage) {
+        if (currentMessage !== specialMessage) {
+          updateMessage()
+        }
+      } else {
+        const currentIndex = getMessageIndex()
+        if (currentIndex !== messageIndex) {
+          updateMessage()
+        }
       }
     }, 60000) // Update every minute
 
@@ -181,7 +207,9 @@ export default function LoveMessagesForRawan() {
         {/* Message Info */}
         <div className="text-center mt-8 animate-fade-in-delay">
           <p className={`text-sm mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-            Message #{messageIndex + 1} of {loveMessages.messages.length}
+            {messageIndex === -1
+              ? "Special Message"
+              : `Message #${messageIndex + 1} of ${loveMessages.messages.length}`}
           </p>
           <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
             Next message in: {timeUntilNext} ✨
