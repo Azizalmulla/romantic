@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Heart, Moon, Sun } from "lucide-react"
+import { Heart, Moon, Sun } from 'lucide-react'
 import FloatingHearts from "./components/floating-hearts"
 
 export default function LoveMessagesForRawan() {
-  const [currentMessage, setCurrentMessage] = useState("Even though I traveled, my heart never left you 💕✈️")
+  const [currentMessage, setCurrentMessage] = useState("You are my first and last love, I love you so much Rawani baby. I know it's unfortunate and hard, but we will get through this. I love you baby, I will always be with you my beautiful girl 💕")
   const [messageIndex, setMessageIndex] = useState(-1)
   const [isLoading, setIsLoading] = useState(true)
   const [timeUntilNext, setTimeUntilNext] = useState("")
@@ -101,7 +101,7 @@ export default function LoveMessagesForRawan() {
             For My Beautiful Rawan
           </h1>
           <p className={`text-lg md:text-xl ${isDarkMode ? "text-gray-300" : "text-gray-300"}`}>
-            A new message of love, every single day 💕
+            A message from the heart 💕
           </p>
         </div>
 
@@ -133,9 +133,9 @@ export default function LoveMessagesForRawan() {
 
         {/* Message Info */}
         <div className="text-center mt-8 animate-fade-in-delay">
-          <p className={`text-sm mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>Special Travel Message ✈️</p>
+          <p className={`text-sm mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>Special Message 💝</p>
           <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-            Back to regular messages tomorrow ✨
+            With all my love ✨
           </p>
         </div>
 
