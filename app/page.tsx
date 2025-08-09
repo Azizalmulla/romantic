@@ -1,11 +1,13 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Heart, Moon, Sun } from 'lucide-react'
+import { Heart, Moon, Sun } from "lucide-react"
 import FloatingHearts from "./components/floating-hearts"
 
 export default function LoveMessagesForRawan() {
-  const [currentMessage, setCurrentMessage] = useState("You are my first and last love, I love you so much Rawani baby. I know it's unfortunate and hard, but we will get through this. I love you baby, I will always be with you my beautiful girl 💕")
+  const [currentMessage, setCurrentMessage] = useState(
+    "Day 2-3 without you is so hard, I have no energy walla, I feel alone, unmotivated, I miss you so much walla il atheem baby I really can't stop crying baby I miss you. You are the best thing that happened to me, I'm never giving up on us, you are my first and last love, my bestfriend and I'm going to marry you walla. I miss your pretty face and your laugh, I miss your voice I miss your jokes, I miss bdlyatch I miss when you make fun of me, I miss when I make fun of you, I miss sleeping with you, I miss everything about you. I truly love you baby, I'll always be here waiting for you and only you, I promise 💕",
+  )
   const [messageIndex, setMessageIndex] = useState(-1)
   const [isLoading, setIsLoading] = useState(true)
   const [timeUntilNext, setTimeUntilNext] = useState("")
@@ -101,7 +103,7 @@ export default function LoveMessagesForRawan() {
             For My Beautiful Rawan
           </h1>
           <p className={`text-lg md:text-xl ${isDarkMode ? "text-gray-300" : "text-gray-300"}`}>
-            A message from the heart 💕
+            Missing you with all my heart 💔
           </p>
         </div>
 
@@ -113,9 +115,9 @@ export default function LoveMessagesForRawan() {
               : "bg-black/60 border-gray-800 backdrop-blur-sm"
           }`}
         >
-          <div className="text-3xl md:text-5xl mb-8 text-center">💕</div>
+          <div className="text-3xl md:text-5xl mb-8 text-center">💔</div>
           <p
-            className={`text-lg md:text-2xl leading-relaxed font-light mb-8 text-center ${
+            className={`text-base md:text-xl leading-relaxed font-light mb-8 text-left ${
               isDarkMode ? "text-gray-100" : "text-gray-100"
             }`}
           >
@@ -123,7 +125,7 @@ export default function LoveMessagesForRawan() {
           </p>
           <div className="text-right">
             <p className={`text-lg md:text-xl font-medium ${isDarkMode ? "text-pink-400" : "text-pink-400"}`}>
-              Forever yours,
+              Always yours,
             </p>
             <p className={`text-2xl md:text-3xl font-light ${isDarkMode ? "text-pink-300" : "text-pink-300"}`}>
               Aziz 💖
@@ -133,10 +135,8 @@ export default function LoveMessagesForRawan() {
 
         {/* Message Info */}
         <div className="text-center mt-8 animate-fade-in-delay">
-          <p className={`text-sm mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>Special Message 💝</p>
-          <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>
-            With all my love ✨
-          </p>
+          <p className={`text-sm mb-2 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>From the heart 💝</p>
+          <p className={`text-sm ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}>Waiting for you always ✨</p>
         </div>
 
         {/* Footer */}
