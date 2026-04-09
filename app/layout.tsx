@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   title: "For Rawan | A Little World Of Us",
   description: "A soft little corner of the internet made to celebrate Rawan.",
   metadataBase: new URL("https://iloverawan.fyi"),
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    viewportFit: "cover",
+  },
   openGraph: {
     title: "For Rawan | A Little World Of Us",
     description: "A soft little corner of the internet made to celebrate Rawan.",

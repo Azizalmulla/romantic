@@ -160,8 +160,8 @@ export default async function Home() {
       <div className="pointer-events-none romantic-orb romantic-orb-two" />
       <div className="pointer-events-none romantic-orb romantic-orb-three" />
 
-      <section className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-8 sm:px-10 lg:px-12">
-        <header className="mb-14 flex items-center justify-between">
+      <section className="relative mx-auto flex min-h-[100svh] w-full max-w-6xl flex-col px-5 pb-12 pt-6 sm:px-10 sm:pb-16 sm:pt-8 lg:px-12">
+        <header className="mb-8 flex items-center justify-between sm:mb-14">
           <div className="romantic-pill">
             <Heart className="h-3.5 w-3.5" fill="currentColor" />
             <span>for rawan</span>
@@ -178,85 +178,90 @@ export default async function Home() {
               love note
             </a>
           </nav>
+
+          <a href="#little-her" className="flex items-center gap-2 rounded-full border border-white/10 px-3 py-1.5 text-xs text-rose-100/75 md:hidden">
+            <ArrowDown className="h-3 w-3" />
+            explore
+          </a>
         </header>
 
-        <div className="grid flex-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid flex-1 items-center gap-10 sm:gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative z-10 max-w-2xl">
-            <div className="mb-5 flex items-center gap-3 text-sm uppercase tracking-[0.35em] text-rose-200/70">
-              <Sparkles className="h-4 w-4" />
+            <div className="mb-4 flex items-center gap-2.5 text-xs uppercase tracking-[0.35em] text-rose-200/70 sm:mb-5 sm:gap-3 sm:text-sm">
+              <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               a little world made for you
             </div>
 
-            <h1 className="font-display text-5xl leading-[0.95] text-white sm:text-6xl lg:text-8xl">
+            <h1 className="font-display text-[2.5rem] leading-[0.95] text-white sm:text-6xl lg:text-8xl">
               every version of you
               <span className="block text-rose-200">has been beautiful</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-8 text-rose-50/78 sm:text-lg">
-              Before there was us, there was a little girl growing into someone bright,
-              gentle, unforgettable, and now somehow I get to love the woman she became.
+            <p className="mt-5 max-w-xl text-[0.94rem] leading-7 text-rose-50/78 sm:mt-6 sm:text-lg sm:leading-8">
+              Before there was us, there was a little girl named Rawan growing into someone
+              bright, gentle, unforgettable, and now somehow I get to love the woman she became.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#little-her" className="romantic-button">
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
+              <a href="#little-her" className="romantic-button text-sm sm:text-base">
                 start the story
               </a>
-              <a href="#love-note" className="romantic-button romantic-button-muted">
+              <a href="#love-note" className="romantic-button romantic-button-muted text-sm sm:text-base">
                 skip to my note
               </a>
             </div>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2">
-              <div className="romantic-card p-5">
+            <div className="mt-8 grid gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-4">
+              <div className="romantic-card p-4 sm:p-5">
                 <p className="text-xs uppercase tracking-[0.3em] text-rose-200/70">
                   little her
                 </p>
-                <p className="mt-3 text-sm leading-7 text-rose-50/75">
-                  A sweet beginning made from the earliest versions of her smile.
+                <p className="mt-2 text-sm leading-7 text-rose-50/75 sm:mt-3">
+                  A sweet beginning made from baby Rawany before I ever knew her.
                 </p>
               </div>
-              <div className="romantic-card p-5">
+              <div className="romantic-card p-4 sm:p-5">
                 <p className="text-xs uppercase tracking-[0.3em] text-rose-200/70">
                   us now
                 </p>
-                <p className="mt-3 text-sm leading-7 text-rose-50/75">
-                  The part of the story where your favorite memories finally include both of you.
+                <p className="mt-2 text-sm leading-7 text-rose-50/75 sm:mt-3">
+                  The part of the story where my favorite memories finally include both of us.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="relative">
-            <div className="absolute -left-8 top-10 h-40 w-40 rounded-full bg-rose-400/20 blur-3xl" />
-            <div className="absolute -right-4 bottom-10 h-48 w-48 rounded-full bg-fuchsia-300/20 blur-3xl" />
+            <div className="absolute -left-8 top-10 hidden h-40 w-40 rounded-full bg-rose-400/20 blur-3xl sm:block" />
+            <div className="absolute -right-4 bottom-10 hidden h-48 w-48 rounded-full bg-fuchsia-300/20 blur-3xl sm:block" />
 
-            <div className="grid gap-4 sm:grid-cols-[0.78fr_1fr]">
-              <div className="flex flex-col gap-4 sm:pt-16">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-[0.78fr_1fr] sm:gap-4">
+              <div className="flex flex-col gap-3 sm:gap-4 sm:pt-16">
                 <PhotoCard
                   src={heroBabyPhoto}
-                  alt="A sweet childhood memory"
+                  alt="Baby Rawan"
                   sizes="(min-width: 1024px) 18vw, 42vw"
-                  className="aspect-[4/5]"
+                  className="aspect-[3/4] sm:aspect-[4/5]"
                 />
-                <div className="romantic-card flex items-center gap-3 p-4 text-sm text-rose-50/80">
-                  <Star className="h-4 w-4 text-rose-200" fill="currentColor" />
+                <div className="romantic-card flex items-center gap-2 p-3 text-xs text-rose-50/80 sm:gap-3 sm:p-4 sm:text-sm">
+                  <Star className="h-3.5 w-3.5 shrink-0 text-rose-200 sm:h-4 sm:w-4" fill="currentColor" />
                   from little moments to forever feelings
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <PhotoCard
                   src={heroPhoto}
-                  alt="A favorite photo"
+                  alt="Us together"
                   priority
-                  sizes="(min-width: 1024px) 28vw, 80vw"
-                  className="aspect-[4/5] sm:aspect-[5/6]"
+                  sizes="(min-width: 1024px) 28vw, 50vw"
+                  className="aspect-[3/4] sm:aspect-[5/6]"
                 />
-                <div className="romantic-card p-5">
-                  <Quote className="h-5 w-5 text-rose-200" />
-                  <p className="mt-3 text-base leading-8 text-rose-50/82">
-                    You are the kind of person who makes love feel soft, safe, and worth writing
-                    about.
+                <div className="romantic-card p-3 sm:p-5">
+                  <Quote className="h-4 w-4 text-rose-200 sm:h-5 sm:w-5" />
+                  <p className="mt-2 text-sm leading-7 text-rose-50/82 sm:mt-3 sm:text-base sm:leading-8">
+                    Baby tiger, you are the kind of person who makes love feel soft, safe, and
+                    worth writing about.
                   </p>
                 </div>
               </div>
@@ -264,125 +269,126 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="mt-12 flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-rose-200/60">
+        <div className="mt-8 flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-rose-200/60 sm:mt-12">
           scroll to continue
           <ArrowDown className="h-4 w-4 animate-bounce" />
         </div>
       </section>
 
-      <section id="little-her" className="relative mx-auto w-full max-w-6xl px-6 py-16 sm:px-10 lg:px-12">
-        <div className="mb-10 max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.38em] text-rose-200/70">little her</p>
-          <h2 className="mt-4 font-display text-4xl text-white sm:text-5xl">
+      <section id="little-her" className="relative mx-auto w-full max-w-6xl px-5 py-12 sm:px-10 sm:py-16 lg:px-12">
+        <div className="mb-8 max-w-2xl sm:mb-10">
+          <p className="text-xs uppercase tracking-[0.38em] text-rose-200/70 sm:text-sm">baby rawany</p>
+          <h2 className="mt-3 font-display text-3xl text-white sm:mt-4 sm:text-5xl">
             the beginning of someone extraordinary
           </h2>
-          <p className="mt-5 text-base leading-8 text-rose-50/78">
-            There is something so tender about seeing the earliest version of someone you love.
-            These photos feel like tiny windows into the sweetness she carried long before I ever
-            knew her.
+          <p className="mt-4 text-[0.94rem] leading-7 text-rose-50/78 sm:mt-5 sm:text-base sm:leading-8">
+            There is something so tender about seeing the earliest version of Rawan.
+            These photos feel like tiny windows into the sweetness she carried long before I
+            ever knew my baby tiger.
           </p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
           {allBabyPhotos.map((src, index) => (
             <PhotoCard
               key={src}
               src={src}
               alt={`Baby Rawan ${index + 1}`}
-              sizes="(min-width: 1024px) 28vw, (min-width: 640px) 42vw, 92vw"
+              sizes="(min-width: 1024px) 28vw, (min-width: 640px) 42vw, 46vw"
               className={
                 index === 0
-                  ? "aspect-[4/5] sm:col-span-2 lg:col-span-1 lg:row-span-2 lg:aspect-auto lg:h-full"
-                  : "aspect-[4/5]"
+                  ? "aspect-[3/4] col-span-2 sm:aspect-[4/5] lg:col-span-1 lg:row-span-2 lg:aspect-auto lg:h-full"
+                  : "aspect-[3/4] sm:aspect-[4/5]"
               }
             />
           ))}
         </div>
       </section>
 
-      <section id="our-story" className="relative mx-auto w-full max-w-6xl px-6 py-16 sm:px-10 lg:px-12">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <section id="our-story" className="relative mx-auto w-full max-w-6xl px-5 py-12 sm:px-10 sm:py-16 lg:px-12">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="lg:sticky lg:top-16">
-            <p className="text-sm uppercase tracking-[0.38em] text-rose-200/70">our story</p>
-            <h2 className="mt-4 font-display text-4xl text-white sm:text-5xl">
+            <p className="text-xs uppercase tracking-[0.38em] text-rose-200/70 sm:text-sm">our story</p>
+            <h2 className="mt-3 font-display text-3xl text-white sm:mt-4 sm:text-5xl">
               and then life became even more beautiful
             </h2>
-            <p className="mt-5 text-base leading-8 text-rose-50/78">
-              Somewhere between ordinary days and unforgettable ones, you became my favorite part
-              of both. Every photo with you feels less like a picture and more like a place I would
-              gladly live in forever.
+            <p className="mt-4 text-[0.94rem] leading-7 text-rose-50/78 sm:mt-5 sm:text-base sm:leading-8">
+              Somewhere between ordinary days and unforgettable ones, Rawan became my favorite
+              part of both. Every photo with my baby tiger feels less like a picture and more
+              like a place I would gladly live in forever.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <div className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
               {reasons.map((reason) => (
-                <div key={reason.title} className="romantic-card p-5">
-                  <p className="text-sm uppercase tracking-[0.3em] text-rose-200/70">
+                <div key={reason.title} className="romantic-card p-4 sm:p-5">
+                  <p className="text-xs uppercase tracking-[0.3em] text-rose-200/70 sm:text-sm">
                     {reason.title}
                   </p>
-                  <p className="mt-3 text-sm leading-7 text-rose-50/76">{reason.text}</p>
+                  <p className="mt-2 text-sm leading-7 text-rose-50/76 sm:mt-3">{reason.text}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5">
             {togetherPhotos.map((src, index) => (
               <PhotoCard
                 key={`${src}-${index}`}
                 src={src}
                 alt={`A memory of us ${index + 1}`}
-                sizes="(min-width: 1024px) 26vw, (min-width: 640px) 42vw, 92vw"
-                className={index === 0 ? "aspect-[4/5] sm:col-span-2 sm:aspect-[16/9]" : "aspect-[4/5]"}
+                sizes="(min-width: 1024px) 26vw, (min-width: 640px) 42vw, 46vw"
+                className={index === 0 ? "aspect-[3/4] col-span-2 sm:aspect-[16/9]" : "aspect-[3/4] sm:aspect-[4/5]"}
               />
             ))}
           </div>
         </div>
       </section>
 
-      <section id="love-note" className="relative mx-auto w-full max-w-5xl px-6 py-16 sm:px-10 lg:px-12">
-        <div className="romantic-card overflow-hidden px-6 py-8 sm:px-10 sm:py-12">
-          <div className="mb-6 flex items-center gap-3 text-sm uppercase tracking-[0.35em] text-rose-200/70">
-            <Heart className="h-4 w-4" fill="currentColor" />
-            a note for you
+      <section id="love-note" className="relative mx-auto w-full max-w-5xl px-5 py-12 sm:px-10 sm:py-16 lg:px-12">
+        <div className="romantic-card overflow-hidden px-5 py-7 sm:px-10 sm:py-12">
+          <div className="mb-5 flex items-center gap-2.5 text-xs uppercase tracking-[0.35em] text-rose-200/70 sm:mb-6 sm:gap-3 sm:text-sm">
+            <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="currentColor" />
+            a note for you, rawany
           </div>
 
-          <h2 className="font-display text-4xl text-white sm:text-5xl">
+          <h2 className="font-display text-[1.75rem] leading-[1.1] text-white sm:text-5xl sm:leading-[0.95]">
             if I could wrap a feeling into a place, it would look a little like this
           </h2>
 
-          <div className="mt-8 space-y-6 text-base leading-8 text-rose-50/80 sm:text-lg">
+          <div className="mt-6 space-y-5 text-[0.94rem] leading-7 text-rose-50/80 sm:mt-8 sm:space-y-6 sm:text-lg sm:leading-8">
             <p>
-              Loving you feels like finding softness in a loud world. It feels like warmth,
-              patience, comfort, and the kind of happiness that sneaks up on me in simple moments.
+              Loving you feels like finding softness in a loud world, baby rawany. It feels like
+              warmth, patience, comfort, and the kind of happiness that sneaks up on me in the
+              simplest moments with you.
             </p>
             <p>
               I love the person you are, the person you have always been, and the person you are
-              still becoming. Every version of you deserves to be adored, and I hope you always
+              still becoming. Every version of Rawan deserves to be adored, and I hope you always
               feel how deeply you are.
             </p>
             <p>
               If this page could do one thing, I hope it reminds you that you are cherished more
-              than words can neatly explain. And if it could do a second thing, I hope it makes you
-              smile the way you make me smile all the time.
+              than words can neatly explain. And if it could do a second thing, baby tiger, I hope
+              it makes you smile the way you make me smile all the time.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="relative mx-auto w-full max-w-5xl px-6 pb-24 pt-8 text-center sm:px-10 lg:px-12">
-        <div className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-rose-100/75 backdrop-blur-md">
-          <Sparkles className="h-4 w-4 text-rose-200" />
+      <section className="relative mx-auto w-full max-w-5xl px-5 pb-20 pt-6 text-center sm:px-10 sm:pb-24 sm:pt-8 lg:px-12">
+        <div className="mx-auto mb-5 flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-rose-100/75 backdrop-blur-md sm:mb-6 sm:px-5 sm:text-sm">
+          <Sparkles className="h-3.5 w-3.5 text-rose-200 sm:h-4 sm:w-4" />
           made with so much love
         </div>
 
-        <h2 className="font-display text-4xl text-white sm:text-6xl">
+        <h2 className="font-display text-3xl text-white sm:text-6xl">
           some people are beautiful in photos.
-          <span className="block text-rose-200">you are beautiful in every era.</span>
+          <span className="block text-rose-200">you are beautiful in every era, Rawan.</span>
         </h2>
 
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-rose-50/72 sm:text-lg">
+        <p className="mx-auto mt-5 max-w-2xl text-[0.94rem] leading-7 text-rose-50/72 sm:mt-6 sm:text-lg sm:leading-8">
           Thank you for being someone worth celebrating in little details, big feelings, and every
-          memory in between.
+          memory in between. I love you, baby rawany.
         </p>
       </section>
     </main>
