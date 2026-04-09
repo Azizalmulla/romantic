@@ -8,6 +8,7 @@ import {
   Sparkles,
   Star,
 } from "lucide-react"
+import { Envelope } from "@/components/envelope"
 
 const IMAGE_EXTENSIONS = new Set([".avif", ".gif", ".jpeg", ".jpg", ".png", ".webp"])
 const BABY_KEYWORDS = ["baby", "child", "kid", "little", "mini", "toddler", "young"]
@@ -345,34 +346,42 @@ export default async function Home() {
       </section>
 
       <section id="love-note" className="relative mx-auto w-full max-w-5xl px-5 py-12 sm:px-10 sm:py-16 lg:px-12">
-        <div className="romantic-card overflow-hidden px-5 py-7 sm:px-10 sm:py-12">
-          <div className="mb-5 flex items-center gap-2.5 text-xs uppercase tracking-[0.35em] text-rose-200/70 sm:mb-6 sm:gap-3 sm:text-sm">
+        <div className="mb-8 text-center sm:mb-10">
+          <div className="mx-auto mb-4 flex w-fit items-center gap-2.5 text-xs uppercase tracking-[0.35em] text-rose-200/70 sm:gap-3 sm:text-sm">
             <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="currentColor" />
             a note for you, rawany
           </div>
-
-          <h2 className="font-display text-[1.75rem] leading-[1.1] text-white sm:text-5xl sm:leading-[0.95]">
-            if I could wrap a feeling into a place, it would look a little like this
+          <h2 className="font-display text-3xl text-white sm:text-5xl">
+            I wrote you something
           </h2>
+        </div>
 
-          <div className="mt-6 space-y-5 text-[0.94rem] leading-7 text-rose-50/80 sm:mt-8 sm:space-y-6 sm:text-lg sm:leading-8">
-            <p>
-              Loving you feels like finding softness in a loud world, baby rawany. It feels like
-              warmth, patience, comfort, and the kind of happiness that sneaks up on me in the
-              simplest moments with you.
+        <Envelope>
+          <div className="space-y-4 text-[0.82rem] leading-6 text-rose-50/82 sm:space-y-5 sm:text-sm sm:leading-7">
+            <p className="font-display text-lg text-rose-200 sm:text-xl">
+              My baby rawany,
             </p>
             <p>
-              I love the person you are, the person you have always been, and the person you are
-              still becoming. Every version of Rawan deserves to be adored, and I hope you always
-              feel how deeply you are.
+              Loving you feels like finding softness in a loud world. It feels like
+              warmth, patience, comfort, and the kind of happiness that sneaks up on me
+              in the simplest moments with you.
             </p>
             <p>
-              If this page could do one thing, I hope it reminds you that you are cherished more
-              than words can neatly explain. And if it could do a second thing, baby tiger, I hope
-              it makes you smile the way you make me smile all the time.
+              I love the person you are, the person you have always been, and the person
+              you are still becoming. Every version of Rawan deserves to be adored, and I
+              hope you always feel how deeply you are.
+            </p>
+            <p>
+              If this page could do one thing, I hope it reminds you that you are
+              cherished more than words can neatly explain. And if it could do a second
+              thing, baby tiger, I hope it makes you smile the way you make me smile all
+              the time.
+            </p>
+            <p className="font-display text-base text-rose-200 sm:text-lg">
+              Forever yours
             </p>
           </div>
-        </div>
+        </Envelope>
       </section>
 
       <section className="relative mx-auto w-full max-w-5xl px-5 pb-20 pt-6 text-center sm:px-10 sm:pb-24 sm:pt-8 lg:px-12">
